@@ -1,0 +1,148 @@
+.buttons{
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0;
+
+  li{
+    border: 2px solid #4fc3f7;
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+    line-height: 2;
+    padding: 6px 0;
+  position: relative;
+
+    h6{
+      font-size: 12px;
+      line-height: 1.5;
+      margin: 0;
+      //padding: 0;
+      text-transform: uppercase;
+      font-weight: 700;
+      a {
+        text-decoration: none;
+        color:black;
+        padding: 8px 20px;
+
+
+
+      }
+    }
+
+  }
+  li.active{
+    background-color: #4fc3f7;
+    border-color: #4fc3f7;
+
+    a{
+      color: white;
+    }
+  }
+  li:not(.active):hover{
+  background-color: rgba(79,195,247,.15);
+  }
+}
+
+.content{
+  display: flex;
+
+  //gap: 20px;
+  height: 100%;
+  font-size: 18px;
+  font-weight: 200;
+  .view{
+    border: 2px solid #4fc3f7;
+    padding: 30px 40px 50px;
+    flex-basis: 50%;
+
+    .parent{
+      display: flex;
+      border: 1px dotted #a6a6a6;
+      .child{
+
+        min-width: 2.5rem;
+        min-height: 2.5rem;
+        padding: 0.5rem;
+        background-color: #97dffa;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        border: 1px solid #fff;
+        //width: 22px;
+        //height: 22px;
+        box-sizing: border-box;
+      }
+      .child:nth-child(1){
+        background-image: url("/assets/1.svg");
+      }
+      .child:nth-child(2){
+        background-image: url("/assets/2.svg");
+      }
+      .child:nth-child(3){
+        background-image: url("/assets/3.svg");
+      }
+      .child:nth-child(4){
+        background-image: url("/assets/4.svg");
+      }
+
+      .child.active{
+        background-image: url("/assets/3_active.svg");
+          background-color: #4cb9d6;
+      }
+    }
+  }
+
+  .code{
+    padding: 30px 70px 40px 50px;
+    background-color: #444;
+    border: 2px solid #444;
+    width: auto;
+    margin-left: 4%;
+    position: relative;
+    white-space: nowrap;
+    flex-basis: 50%;
+    code{
+      color: #fff;
+      background-color: #444;
+      padding: 2px 4px;
+      font-size: 90%;
+      border-radius: 4px;
+      line-height: 1.5;
+      position: relative;
+      mark{
+        background-color: #4fc3f7;
+        padding: 0.2em 0.5em;
+        color: #fff;
+      }
+
+    }
+    .copy{
+      background-color: #4fc3f7;
+      border: none;
+      color: #fff;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      font-size: 20px;
+      padding: 5px 10px;
+      transition: 0.3s;
+      svg{
+        width: 20px;
+        height: 25px;
+        fill: white;
+      }
+    }
+  }
+}
+
+dl{
+  margin-top: 20px;
+  line-height: 1.5;
+}
+dt{
+  font-weight: 700;
+}
+dd{
+  margin-bottom: 15px;
+}
