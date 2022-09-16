@@ -1,4 +1,6 @@
 ## Свойства контейнера:
+Нарасположение flex-осей (главной и поперечной) также влияет свойство writing-mode задающие направление письма.
+
 ### display
 Значения: flex, inline-flex;
 Описание: определяет элемент как блочный flex-контейнер или как строчный flex-контейнер.
@@ -51,7 +53,7 @@ margin-left: auto, margin-right: auto, margin-top: auto, margin-bottom: auto, ma
 ### flex-basis
 Значения: width-value (или height-value), content, auto;
 Значение по-умолчанию: auto;
-Описание: если flex-basis == auto, то flex-basis = width flex-элемента или height flex-элемента, flex-basis == content, то flex-basis = width flex-элемента или height flex-элемента, при этом width flex-элемента или height flex-элемента = auto.
+Описание: flex-basis переписывает свойство width (или height), но свойства min-width (или min-height) переписывают flex-basis.
 ### flex
 Значение по-умолчанию: 0 1 auto (однако flex: 2; == flex-grow: 2;flex-shrink: 1;flex-basis: 0%; );
 Описание: является сокращенной записью свойств flex-grow, flex-shrink и flex-basis.

@@ -599,10 +599,96 @@ const ElementFlexShrink:FC = ()=>{
     </ExampleSection>)
 }
 const ElementFlexBasis:FC = ()=>{
-    return (<></>)
+    return (<ExampleSection styleName={'flex-basis'}
+                            styleVariants={['0','auto','content', '100px', '200px']}
+                            view={
+                                (style) => <>
+                                    Здесь текст
+                                    <div style={{ height: '200px'}}
+                                         className={classes.parent}>
+                                        <div style={{width: '40%'}} className={classes.child}></div>
+                                        <div style={{width: '40%'}}  className={classes.child}></div>
+                                        <div style={{width: '40%',flexBasis: style}} className={classes.child + " " + classes.active}></div>
+                                        <div style={{width: '40%'}}  className={classes.child}></div>
+                                    </div>
+                                </>
+                            }
+                            code={
+                                (style) => <>
+                                    <code>
+                                        .parent&#123;
+                                        <br/>
+                                        <>&nbsp;&nbsp;</>
+                                        display: flex;
+                                        <br/>
+                                        <>&nbsp;&nbsp;</>
+                                        height: 200px;
+                                        <br/>
+                                        .child&#123;
+                                        <br/>
+                                        <>&nbsp;&nbsp;</>
+                                        width: 40%
+                                        <br/>
+                                        .child-active&#123;
+                                        <br/>
+                                        <>&nbsp;&nbsp;</>
+                                        <mark>flex-basis:{style}</mark>
+                                        <br/>
+                                        &#125;
+                                    </code>
+
+                                </>
+                            }>
+        <p>Свойство flex-basis переписывает свойство width (или height), но свойства min-width (или min-height) переписывают flex-basis.</p>
+        <p><strong>Применяется к:</strong> flex элементам.</p>
+        <p><strong>Значение по-умолчанию:</strong> auto</p>
+    </ExampleSection>)
 }
 const ElementFlex:FC = ()=>{
-    return (<></>)
+    return (<ExampleSection styleName={'flex'}
+                            styleVariants={['0 1 auto','2','0 1 20%', '2 1', '0 1 200px', '2 1 auto','0 2']}
+                            view={
+                                (style) => <>
+                                    Здесь текст
+                                    <div style={{ height: '200px'}}
+                                         className={classes.parent}>
+                                        <div style={{width: '20%'}} className={classes.child}></div>
+                                        <div style={{width: '20%'}}  className={classes.child}></div>
+                                        <div style={{width: '20%',flex: style}} className={classes.child + " " + classes.active}></div>
+                                        <div style={{width: '20%'}}  className={classes.child}></div>
+                                    </div>
+                                </>
+                            }
+                            code={
+                                (style) => <>
+                                    <code>
+                                        .parent&#123;
+                                        <br/>
+                                        <>&nbsp;&nbsp;</>
+                                        display: flex;
+                                        <br/>
+                                        <>&nbsp;&nbsp;</>
+                                        height: 200px;
+                                        <br/>
+                                        .child&#123;
+                                        <br/>
+                                        <>&nbsp;&nbsp;</>
+                                        width: 40%
+                                        <br/>
+                                        .child-active&#123;
+                                        <br/>
+                                        <>&nbsp;&nbsp;</>
+                                        <mark>flex:{style}</mark>
+                                        <br/>
+                                        &#125;
+                                    </code>
+
+                                </>
+                            }>
+        <p>Свойство flex является сокращенной записью свойств flex-grow, flex-shrink и flex-basis. Значение по-умолчанию: 0 1 auto (однако flex: 2; == flex-grow: 2;flex-shrink: 1;flex-basis: 0%; );</p>
+        <p><strong>Применяется к:</strong> flex элементам.</p>
+        <p><strong>Значение по-умолчанию:</strong> 0 1 auto</p>
+    </ExampleSection>)
 }
 
 const FlexboxGuidePage: FC = () => {
