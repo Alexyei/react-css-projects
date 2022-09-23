@@ -1,5 +1,5 @@
 import {CSSProperties, FC, ReactNode, useState} from "react";
-import classes from './FlexboxGuide.module.scss'
+import classes from './GridGuide.module.scss'
 
 
 const ExampleSection: FC<{
@@ -44,7 +44,7 @@ const ExampleSection: FC<{
 
 const ContainerDisplay: FC = () => {
     return (
-        <ExampleSection styleName={'display'} styleVariants={['flex', 'inline-flex']}
+        <ExampleSection styleName={'display'} styleVariants={['grid', 'inline-grid','subgrid']}
                         view={
                             (style) => <>
                                 Здесь текст
@@ -52,6 +52,11 @@ const ContainerDisplay: FC = () => {
                                     <div className={classes.child}></div>
                                     <div className={classes.child}></div>
                                     <div className={classes.child + " " + classes.active}></div>
+                                    <div className={classes.child}></div>
+                                    <div className={classes.child}></div>
+                                    <div className={classes.child}></div>
+                                    <div className={classes.child}></div>
+                                    <div className={classes.child}></div>
                                     <div className={classes.child}></div>
                                 </div>
                             </>
@@ -69,25 +74,32 @@ const ContainerDisplay: FC = () => {
             <p>Многоцелевое свойство, которое определяет, как элемент должен быть показан в документе.</p>
             <p><strong>Применяется ко:</strong> всем элементам.</p>
             <dl>
-                <dt>flex</dt>
-                <dd>Элемент ведёт себя как блочный и выкладывает содержимое согласно флекс-модели.</dd>
-                <dt>inline-flex</dt>
-                <dd>Элемент ведёт себя как строчный и выкладывает содержимое согласно флекс-модели.</dd>
+                <dt>grid</dt>
+                <dd>Элемент ведёт себя как блочный и выкладывает содержимое согласно grid-модели.</dd>
+                <dt>inline-grid</dt>
+                <dd>Элемент ведёт себя как строчный и выкладывает содержимое согласно grid-модели.</dd>
+                <dt>subgrid</dt>
+                <dd>Элемент ведёт себя как блочный и выкладывает содержимое согласно grid-модели. Наследует некоторые свойства от родительского grid.</dd>
             </dl>
         </ExampleSection>)
 }
-const ContainerFlexDirection: FC = () => {
+const ContainerGridTemplateColumns: FC = () => {
     return (
-        <ExampleSection styleName={'flex-direction'}
-                        styleVariants={['row', 'row-reverse', 'column', 'column-reverse']}
+        <ExampleSection styleName={'grid-template-columns'}
+                        styleVariants={['100px 50px 100px', '50px 1fr 50px', 'repeat(3 ,80px)', '80px repeat(1, 1fr) 2fr', 'minmax(100px, max-content) 1fr 2fr', 'fit-content(40%) 80px 100px','[linename1] 100px [linename2 linename3]','[main-start] 1fr [content-start] 1fr [content-end] 1fr [main-end]', 'none']}
                         view={
                             (style) => <>
                                 Здесь текст
-                                <div style={{flexDirection: style as any, height: '200px'}}
+                                <div style={{gridTemplateColumns: style as any}}
                                      className={classes.parent}>
                                     <div className={classes.child}></div>
                                     <div className={classes.child}></div>
                                     <div className={classes.child + " " + classes.active}></div>
+                                    <div className={classes.child}></div>
+                                    <div className={classes.child}></div>
+                                    <div className={classes.child}></div>
+                                    <div className={classes.child}></div>
+                                    <div className={classes.child}></div>
                                     <div className={classes.child}></div>
                                 </div>
                             </>
@@ -99,39 +111,22 @@ const ContainerFlexDirection: FC = () => {
                                     <br/>
                                     display: flex;
                                     <br/>
-                                    <>&nbsp;</>
-                                    alignItems: flex-start;
-                                    <br/>
-                                    <mark>flex-direction:{style}</mark>
+                                    <mark>grid-template-columns:{style}</mark>
                                     <br/>
                                     &#125;
                                 </code></>
                         }>
-            <p>Свойство flex-direction задаёт направление основных осей в контейнере и тем самым определяет
-                положение флексов в контейнере. На само направление также влияет значение атрибута dir у
-                контейнера.</p>
-            <p><strong>Применяется к:</strong> flex контейнерам.</p>
-            <p><strong>Значение по-умолчанию:</strong>row</p>
-            <dl>
-                <dt>row</dt>
-                <dd>Главная ось направлена так же, как и ориентация текста, по умолчанию слева направо. Если
-                    значение dir задано как rtl, то направление оси идёт справа налево.
-                </dd>
-                <dt>row-reverse</dt>
-                <dd>Похоже на значение row, но меняются местами начальная и конечная точки и главная ось направлена
-                    справа налево. Если значение dir задано как rtl, то направление оси идёт слева направо.
-                </dd>
-                <dt>column</dt>
-                <dd>Главная ось располагается вертикально и направлена сверху вниз.</dd>
-                <dt>column-reverse</dt>
-                <dd>Главная ось располагается вертикально, но меняется положение начальной и конечной точек и ось
-                    направлена снизу вверх.
-                </dd>
-            </dl>
+            <p>Свойство grid-template-columns количество и размеры колонок grid. Также данное свойство может опередять названия вертикальных линий (не колонок) grid-а (если у grid 3 колонки, то у него 4 линии |1|2|3| == [first-line]1[second-line]2[third-line]3[fourth-line]).Имена линий могут использоваться в других grid-свойствах, например: (.box1&#123;
+                grid-column-start: main-start;
+                grid-row-start: main-start;
+                grid-row-end: main-end;
+                &#125;). Также у одной линии может быть несколько имён, указывать через пробел: [first-line first-line-second-name]</p>
+            <p><strong>Применяется к:</strong> grid контейнерам.</p>
+            <p><strong>Значение по-умолчанию:</strong>none</p>
         </ExampleSection>
     )
 }
-const ContainerFlexWrap:FC = ()=>{
+const ContainerGridTemplateRows:FC = ()=>{
     return (
         <ExampleSection styleName={'flex-wrap'}
                         styleVariants={['nowrap', 'wrap-reverse', 'wrap']}
@@ -201,7 +196,7 @@ const ContainerFlexWrap:FC = ()=>{
         </ExampleSection>
     )
 }
-const ContainerFlexFlow:FC = ()=>{
+const ContainerGridTemplateAreas:FC = ()=>{
     return (<ExampleSection styleName={'flex-flow'}
                             styleVariants={['row nowrap','row wrap', 'row wrap-reverse', 'row-reverse wrap', 'row-reverse nowrap', 'row-reverse wrap-reverse',  'column nowrap','column wrap', 'column wrap-reverse', 'column-reverse wrap', 'column-reverse nowrap', 'column-reverse wrap-reverse']}
                             view={
@@ -251,7 +246,7 @@ const ContainerFlexFlow:FC = ()=>{
         <p><strong>Значение по-умолчанию:</strong> row nowrap</p>
     </ExampleSection>)
 }
-const ContainerJustifyContent:FC = ()=>{
+const ContainerGridTemplate:FC = ()=>{
     return (<ExampleSection styleName={'justify-content'}
                             styleVariants={['flex-start','flex-end', 'center', 'space-between', 'space-around', 'space-evenly']}
                             view={
@@ -691,19 +686,16 @@ const ElementFlex:FC = ()=>{
     </ExampleSection>)
 }
 
-const FlexboxGuidePage: FC = () => {
+const GridGuidePage: FC = () => {
     return (
         <article>
-            <h1>Шпаргалка по Flexbox CSS</h1>
-            <p>Вся документация по свойству <code>flex</code> находится на <a target="_blank"
-                                                                              href="https://www.w3.org/TR/css-flexbox-1/#flex-containers">официальном
+            <h1>Шпаргалка по Grid CSS</h1>
+            <p>Вся документация по свойству <code>grid</code> находится на <a target="_blank"
+                                                                              href="https://www.w3.org/TR/css-grid-1/">официальном
                 сайте</a>.</p>
             <h2>Свойства контейнера:</h2>
             <ContainerDisplay/>
-            <ContainerFlexDirection/>
-            <ContainerFlexWrap/>
-            <ContainerFlexFlow/>
-            <ContainerJustifyContent/>
+            <ContainerGridTemplateColumns/>
             <ContainerAlignItems/>
             <ContainerAlignContent/>
             <h2>Свойства элемента:</h2>
@@ -718,4 +710,4 @@ const FlexboxGuidePage: FC = () => {
     )
 }
 
-export default FlexboxGuidePage;
+export default GridGuidePage;
