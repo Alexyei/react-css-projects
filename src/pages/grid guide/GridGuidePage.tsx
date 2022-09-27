@@ -44,7 +44,7 @@ const ExampleSection: FC<{
 
 const ContainerDisplay: FC = () => {
     return (
-        <ExampleSection styleName={'display'} styleVariants={['grid', 'inline-grid','subgrid']}
+        <ExampleSection styleName={'display'} styleVariants={['grid', 'inline-grid']}
                         view={
                             (style) => <>
                                 Здесь текст
@@ -78,9 +78,7 @@ const ContainerDisplay: FC = () => {
                 <dd>Элемент ведёт себя как блочный и выкладывает содержимое согласно grid-модели.</dd>
                 <dt>inline-grid</dt>
                 <dd>Элемент ведёт себя как строчный и выкладывает содержимое согласно grid-модели.</dd>
-                <dt>subgrid</dt>
-                <dd>Элемент ведёт себя как блочный и выкладывает содержимое согласно grid-модели. Наследует некоторые свойства от родительского grid.</dd>
-            </dl>
+               </dl>
         </ExampleSection>)
 }
 const ContainerGridTemplateColumns: FC = () => {
