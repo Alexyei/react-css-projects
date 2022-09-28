@@ -107,7 +107,7 @@ const ContainerGridTemplateColumns: FC = () => {
                                 <code>
                                     .parent&#123;
                                     <br/>
-                                    display: flex;
+                                    display: grid;
                                     <br/>
                                     <mark>grid-template-columns:{style}</mark>
                                     <br/>
@@ -116,8 +116,7 @@ const ContainerGridTemplateColumns: FC = () => {
                         }>
             <p>Свойство grid-template-columns количество и размеры колонок grid. Также данное свойство может опередять названия вертикальных линий (не колонок) grid-а (если у grid 3 колонки, то у него 4 линии |1|2|3| == [first-line]1[second-line]2[third-line]3[fourth-line]).Имена линий могут использоваться в других grid-свойствах, например: (.box1&#123;
                 grid-column-start: main-start;
-                grid-row-start: main-start;
-                grid-row-end: main-end;
+                grid-column-end: main-end;
                 &#125;). Также у одной линии может быть несколько имён, указывать через пробел: [first-line first-line-second-name]</p>
             <p><strong>Применяется к:</strong> grid контейнерам.</p>
             <p><strong>Значение по-умолчанию:</strong>none</p>
@@ -126,18 +125,22 @@ const ContainerGridTemplateColumns: FC = () => {
 }
 const ContainerGridTemplateRows:FC = ()=>{
     return (
-        <ExampleSection styleName={'flex-wrap'}
-                        styleVariants={['nowrap', 'wrap-reverse', 'wrap']}
+        <ExampleSection styleName={'grid-template-rows'}
+                        styleVariants={['100px 50px 100px', '50px 1fr 50px', 'repeat(3 ,80px)', '80px repeat(1, 1fr) 2fr', 'minmax(100px, max-content) 1fr 2fr', 'fit-content(40%) 80px 100px','[linename1] 100px [linename2 linename3]','[main-start] 1fr [content-start] 1fr [content-end] 1fr [main-end]', 'none']}
                         view={
                             (style) => <>
                                 Здесь текст
-                                <div style={{alignItems: 'flex-start', height: '200px', flexWrap: style as any}}
+                                <div style={{gridTemplateRows: style as any}}
                                      className={classes.parent}>
-                                    <div style={{width: '40%'}} className={classes.child}></div>
-                                    <div style={{width: '40%'}} className={classes.child}></div>
-                                    <div style={{width: '40%'}}
-                                         className={classes.child + " " + classes.active}></div>
-                                    <div style={{width: '40%'}} className={classes.child}></div>
+                                    <div className={classes.child}></div>
+                                    <div className={classes.child}></div>
+                                    <div className={classes.child + " " + classes.active}></div>
+                                    <div className={classes.child}></div>
+                                    <div className={classes.child}></div>
+                                    <div className={classes.child}></div>
+                                    <div className={classes.child}></div>
+                                    <div className={classes.child}></div>
+                                    <div className={classes.child}></div>
                                 </div>
                             </>
                         }
@@ -146,67 +149,33 @@ const ContainerGridTemplateRows:FC = ()=>{
                                 <code>
                                     .parent&#123;
                                     <br/>
-                                    <>&nbsp;&nbsp;</>
-                                    display: flex;
+                                    display: grid;
                                     <br/>
-                                    <>&nbsp;&nbsp;</>
-                                    alignItems: flex-start;
-                                    <br/>
-                                    <>&nbsp;&nbsp;</>
-                                    height: 200px;
-                                    <br/>
-                                    <>&nbsp;&nbsp;</>
-                                    <mark>flex-wrap:{style}</mark>
+                                    <mark>grid-template-rows:{style}</mark>
                                     <br/>
                                     &#125;
-                                    <br/>
-                                    .child&#123;
-                                    <br/>
-                                    <>&nbsp;&nbsp;</>
-                                    width: 40%;
-                                    <br/>
-                                    &#125;
-                                </code>
-
-                            </>
+                                </code></>
                         }>
-            <p>Свойство flex-direction задаёт направление основных осей в контейнере и тем самым определяет
-                положение флексов в контейнере. На само направление также влияет значение атрибута dir у
-                контейнера.</p>
-            <p><strong>Применяется к:</strong> flex контейнерам.</p>
-            <p><strong>Значение по-умолчанию:</strong>nowrap</p>
-            <dl>
-                <dt>row</dt>
-                <dd>Главная ось направлена так же, как и ориентация текста, по умолчанию слева направо. Если
-                    значение dir задано как rtl, то направление оси идёт справа налево.
-                </dd>
-                <dt>row-reverse</dt>
-                <dd>Похоже на значение row, но меняются местами начальная и конечная точки и главная ось направлена
-                    справа налево. Если значение dir задано как rtl, то направление оси идёт слева направо.
-                </dd>
-                <dt>column</dt>
-                <dd>Главная ось располагается вертикально и направлена сверху вниз.</dd>
-                <dt>column-reverse</dt>
-                <dd>Главная ось располагается вертикально, но меняется положение начальной и конечной точек и ось
-                    направлена снизу вверх.
-                </dd>
-            </dl>
+            <p>Свойство grid-template-rows количество и размеры колонок grid. Также данное свойство может опередять названия вертикальных линий (не колонок) grid-а (если у grid 3 колонки, то у него 4 линии |1|2|3| == [first-line]1[second-line]2[third-line]3[fourth-line]).Имена линий могут использоваться в других grid-свойствах, например: (.box1&#123;
+                grid-row-start: main-start;
+                grid-row-end: main-end;
+                &#125;). Также у одной линии может быть несколько имён, указывать через пробел: [first-line first-line-second-name]</p>
+            <p><strong>Применяется к:</strong> grid контейнерам.</p>
+            <p><strong>Значение по-умолчанию:</strong>none</p>
         </ExampleSection>
     )
 }
 const ContainerGridTemplateAreas:FC = ()=>{
-    return (<ExampleSection styleName={'flex-flow'}
-                            styleVariants={['row nowrap','row wrap', 'row wrap-reverse', 'row-reverse wrap', 'row-reverse nowrap', 'row-reverse wrap-reverse',  'column nowrap','column wrap', 'column wrap-reverse', 'column-reverse wrap', 'column-reverse nowrap', 'column-reverse wrap-reverse']}
+    return (<ExampleSection styleName={'grid-template-areas'}
+                            styleVariants={[ '"a a a" "b c c" "b c c"',"'b b a' 'b b c' 'b b c'", '"a a ." ". b b" "c c ."']}
                             view={
                                 (style) => <>
                                     Здесь текст
-                                    <div style={{ height: '200px', flexFlow: style as any}}
+                                    <div style={{ gridTemplate:"50px 50px 50px / 50px 50px 50px", gridTemplateAreas: style as any,}}
                                          className={classes.parent}>
-                                        <div style={{width: '40%', height: '40%'}} className={classes.child}></div>
-                                        <div style={{width: '40%', height: '40%'}} className={classes.child}></div>
-                                        <div style={{width: '40%', height: '40%'}}
-                                             className={classes.child + " " + classes.active}></div>
-                                        <div style={{width: '40%', height: '40%'}} className={classes.child}></div>
+                                        <div style={{gridArea:"a"}} className={classes.child}></div>
+                                        <div style={{gridArea:"b"}} className={classes.child}></div>
+                                        <div style={{gridArea:"c"}}className={classes.child + " " + classes.active}></div>
                                     </div>
                                 </>
                             }
@@ -215,47 +184,36 @@ const ContainerGridTemplateAreas:FC = ()=>{
                                     <code>
                                         .parent&#123;
                                         <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        display: flex;
+                                        display: grid;
                                         <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        height: 200px;
+                                        grid-template: 50px 50px 50px / 50px 50px 50px
                                         <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        <mark>flex-flow:{style}</mark>
+                                        <mark>grid-template-areas:{style}</mark>
                                         <br/>
                                         &#125;
                                         <br/>
                                         .child&#123;
-                                        <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        width: 40%;
-                                        <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        height: 40%;
+                                        grid-area: a | b | c
                                         <br/>
                                         &#125;
-                                    </code>
-
-                                </>
+                                    </code></>
                             }>
-        <p>Свойство flex-flow является сокращённым свойством для отдельных свойств flex-direction и flex-wrap.</p>
-        <p><strong>Применяется к:</strong> flex контейнерам.</p>
-        <p><strong>Значение по-умолчанию:</strong> row nowrap</p>
+        <p>CSS-свойство grid-template-areas создаёт grid-области путём размещения именованных ячеек в грид-раскладке.</p>
+        <p><strong>Применяется к:</strong> grid контейнерам.</p>
+        <p><strong>Значение по-умолчанию:</strong> none</p>
     </ExampleSection>)
 }
 const ContainerGridTemplate:FC = ()=>{
-    return (<ExampleSection styleName={'justify-content'}
-                            styleVariants={['flex-start','flex-end', 'center', 'space-between', 'space-around', 'space-evenly']}
+    return (<ExampleSection styleName={'grid-template'}
+                            styleVariants={[ '"a a a" 50px "b c c" 50px "b c c" 50px / 50px 50px 50px',"'b b a' 1fr 'b b c' 2fr 'b b c' 50px / 50px 50px 3fr", '"a a ." 50px ". b b" 50px "c c ." 50px / 50px 50px 50px']}
                             view={
                                 (style) => <>
                                     Здесь текст
-                                    <div style={{ height: '200px', justifyContent: style as any}}
+                                    <div style={{ gridTemplate: style as any,}}
                                          className={classes.parent}>
-                                        <div  className={classes.child}></div>
-                                        <div  className={classes.child}></div>
-                                        <div  className={classes.child + " " + classes.active}></div>
-                                        <div  className={classes.child}></div>
+                                        <div style={{gridArea:"a"}} className={classes.child}></div>
+                                        <div style={{gridArea:"b"}} className={classes.child}></div>
+                                        <div style={{gridArea:"c"}}className={classes.child + " " + classes.active}></div>
                                     </div>
                                 </>
                             }
@@ -264,39 +222,21 @@ const ContainerGridTemplate:FC = ()=>{
                                     <code>
                                         .parent&#123;
                                         <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        display: flex;
+                                        display: grid;
                                         <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        height: 200px;
-                                        <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        <mark>justify-content:{style}</mark>
+                                        <mark>grid-template:{style}</mark>
                                         <br/>
                                         &#125;
-                                    </code>
-
-                                </>
+                                        <br/>
+                                        .child&#123;
+                                        grid-area: a | b | c
+                                        <br/>
+                                        &#125;
+                                    </code></>
                             }>
-        <p>Свойство justify-content определяет, как браузер распределяет пространство вокруг флекс-элементов вдоль главной оси контейнера. Это делается после того, как применяются размеры и автоматические отступы, за исключением ситуации, когда по крайней мере у одного элемента flex-grow больше нуля. При этом не остаётся никакого свободного пространства для манипулирования.</p>
-        <p><strong>Применяется к:</strong> flex контейнерам.</p>
-        <p><strong>Значение по-умолчанию:</strong> flex-start</p>
-        <dl>
-            <dt>flex-start</dt>
-            <dd>Флексы прижаты к началу строки.
-            </dd>
-            <dt>flex-end</dt>
-            <dd>Флексы прижаты к концу строки.
-            </dd>
-            <dt>center</dt>
-            <dd>Флексы выравниваются по центру строки.</dd>
-            <dt>space-between</dt>
-            <dd>Флексы равномерно распределяются по всей строке. Первый и последний элемент прижимаются к соответствующим краям контейнера.</dd>
-        <dt>space-around</dt>
-            <dd>Флексы равномерно распределяются по всей строке. Пустое пространство перед первым и после последнего элементов равно половине пространства между двумя соседними элементами.</dd>
-         <dt>space-evenly</dt>
-            <dd>Флексы распределяются так, что расстояние между любыми двумя соседними элементами, а также перед первым и после последнего, было одинаковым.</dd>
-        </dl>
+        <p>CSS-свойство grid-template является сокращением для свойств: grid-template-rows, grid-template-columns, grid-template-areas</p>
+        <p><strong>Применяется к:</strong> grid контейнерам.</p>
+        <p><strong>Значение по-умолчанию:</strong> none</p>
     </ExampleSection>)
 }
 const ContainerAlignItems:FC = ()=>{
@@ -694,8 +634,9 @@ const GridGuidePage: FC = () => {
             <h2>Свойства контейнера:</h2>
             <ContainerDisplay/>
             <ContainerGridTemplateColumns/>
-            <ContainerAlignItems/>
-            <ContainerAlignContent/>
+            <ContainerGridTemplateRows/>
+            <ContainerGridTemplateAreas/>
+            <ContainerGridTemplate/>
             <h2>Свойства элемента:</h2>
             <ElementOrder/>
             <ElementAlignSelf/>
