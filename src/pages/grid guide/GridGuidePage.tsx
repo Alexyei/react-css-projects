@@ -239,131 +239,22 @@ const ContainerGridTemplate:FC = ()=>{
         <p><strong>Значение по-умолчанию:</strong> none</p>
     </ExampleSection>)
 }
-const ContainerAlignItems:FC = ()=>{
-    return (<ExampleSection styleName={'align-items'}
-                            styleVariants={['flex-start','flex-end', 'center', 'baseline', 'stretch']}
+const ContainerRowGap:FC = ()=>{
+    return (<ExampleSection styleName={'row-gap'}
+                            styleVariants={[ "5px","20px", "5%", "1em", "calc(5% + 5px)", "normal"]}
                             view={
                                 (style) => <>
                                     Здесь текст
-                                    <div style={{ height: '200px', alignItems: style as any}}
+                                    <div style={{ gridTemplate: "repeat(3, 1fr) / repeat(3, 1fr)",rowGap: style as any}}
                                          className={classes.parent}>
-                                        <div  className={classes.child}></div>
-                                        <div style={{minWidth:'3rem',minHeight:'3rem'}}  className={classes.child}></div>
-                                        <div  className={classes.child + " " + classes.active}></div>
-                                        <div  className={classes.child}></div>
-                                    </div>
-                                </>
-                            }
-                            code={
-                                (style) => <>
-                                    <code>
-                                        .parent&#123;
-                                        <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        display: flex;
-                                        <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        height: 200px;
-                                        <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        <mark>align-items:{style}</mark>
-                                        <br/>
-                                        &#125;
-                                    </code>
-
-                                </>
-                            }>
-        <p>Свойство align-items выравнивает флекс-элементы внутри контейнера в перпендикулярном направлении.</p>
-        <p><strong>Применяется к:</strong> flex контейнерам.</p>
-        <p><strong>Значение по-умолчанию:</strong> stretch</p>
-        <dl>
-            <dt>flex-start</dt>
-            <dd>Флексы выравниваются в начале поперечной оси контейнера.
-            </dd>
-            <dt>flex-end</dt>
-            <dd>Флексы выравниваются в конце поперечной оси контейнера.
-            </dd>
-            <dt>center</dt>
-            <dd>Флексы выравниваются по линии поперечной оси.</dd>
-            <dt>baseline</dt>
-            <dd>Флексы выравниваются по их базовой линии.</dd>
-            <dt>stretch</dt>
-            <dd>Флексы растягиваются таким образом, чтобы занять всё доступное пространство контейнера.</dd>
-         </dl>
-    </ExampleSection>)
-}
-const ContainerAlignContent:FC = ()=>{
-    return (<ExampleSection styleName={'align-content'}
-                            styleVariants={['flex-start','flex-end', 'center', 'space-between', 'space-around', 'space-evenly', 'stretch']}
-                            view={
-                                (style) => <>
-                                    Здесь текст
-                                    <div style={{ height: '200px', flexWrap:'wrap', alignContent: style as any}}
-                                         className={classes.parent}>
-                                        <div style={{width: '30%'}} className={classes.child}></div>
-                                        <div style={{minWidth:'3rem',minHeight:'3rem', width: '30%'}}  className={classes.child}></div>
-                                        <div style={{width: '30%'}} className={classes.child + " " + classes.active}></div>
-                                        <div style={{width: '30%'}} className={classes.child}></div>
-                                    </div>
-                                </>
-                            }
-                            code={
-                                (style) => <>
-                                    <code>
-                                        .parent&#123;
-                                        <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        display: flex;
-                                        <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        height: 200px;
-                                        <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        <mark>alignItems:{style}</mark>
-                                        <br/>
-                                        .child&#123;
-                                        <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        width: 30%;
-                                        <br/>
-                                        &#125;
-                                    </code>
-
-                                </>
-                            }>
-        <p>Свойство align-content задаёт тип выравнивания строк внутри flex контейнера по поперечной оси при наличии свободного пространства.</p>
-        <p><strong>Применяется к:</strong> flex контейнерам.</p>
-        <p><strong>Значение по-умолчанию:</strong> stretch</p>
-        <dl>
-            <dt>flex-start</dt>
-            <dd>Строки располагаются в начале поперечной оси. Каждая следующая строка идёт вровень с предыдущей.</dd>
-            <dt>flex-end</dt>
-            <dd>Строки располагаются начиная с конца поперечной оси. Каждая предыдущая строка идёт вровень со следующей.</dd>
-            <dt>center</dt>
-            <dd>Строки располагаются по центру контейнера.</dd>
-            <dt>space-between</dt>
-            <dd>Строки равномерно распределяются в контейнере и расстояние между ними одинаково.</dd>
-            <dt>space-around</dt>
-            <dd>Строки равномерно распределяются таким образом, чтобы пространство между двумя соседними строками было одинаковым. Пустое пространство перед первой строкой и после последней строки равно половине пространства между двумя соседними строками.</dd>
-            <dt>space-evenly</dt>
-            <dd>Строки распределяются равномерно. Пустое пространство перед первой строкой и после последней строки имеет ту же ширину, что и у других строк.</dd>
-            <dt>stretch</dt>
-            <dd>Строки равномерно растягиваются, заполняя свободное пространство.</dd>
-        </dl>
-    </ExampleSection>)
-}
-
-const ElementOrder:FC = ()=>{
-    return (<ExampleSection styleName={'order'}
-                            styleVariants={['-1','0', '1']}
-                            view={
-                                (style) => <>
-                                    Здесь текст
-                                    <div
-                                         className={classes.parent}>
-                                        <div  className={classes.child}></div>
-                                        <div   className={classes.child}></div>
-                                        <div style={{order: style}} className={classes.child + " " + classes.active}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child + " " + classes.active}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
                                         <div className={classes.child}></div>
                                     </div>
                                 </>
@@ -373,36 +264,37 @@ const ElementOrder:FC = ()=>{
                                     <code>
                                         .parent&#123;
                                         <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        display: flex;
+                                        display: grid;
                                         <br/>
-                                        .child-active&#123;
+                                        grid-template: repeat(3, 1fr) / repeat(3, 1fr)
                                         <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        <mark>order:{style}</mark>
+                                        <mark>gap: {style}</mark>
                                         <br/>
                                         &#125;
-                                    </code>
-
-                                </>
+                                    </code></>
                             }>
-        <p>Свойство order определяет порядок вывода флексов внутри флекс-контейнера. Элементы располагаются согласно значениям свойства order от меньшего к большему. При равных значениях order элементы выводятся в том порядке, в каком они появляются в исходном коде.</p>
-        <p><strong>Применяется к:</strong> flex элементам.</p>
-        <p><strong>Значение по-умолчанию:</strong> 0</p>
+        <p>CSS-свойство row-gap задаёт отступы мужду строками.</p>
+        <p><strong>Применяется к:</strong> grid контейнерам.</p>
+        <p><strong>Значение по-умолчанию:</strong> normal</p>
     </ExampleSection>)
 }
-const ElementAlignSelf:FC = ()=>{
-    return (<ExampleSection styleName={'align-self'}
-                            styleVariants={['flex-start','flex-end', 'center', 'baseline',  'stretch']}
+const ContainerColumnGap:FC = ()=>{
+    return (<ExampleSection styleName={'column-gap'}
+                            styleVariants={[ "5px","20px", "5%", "1em", "calc(5% + 5px)", "normal"]}
                             view={
                                 (style) => <>
                                     Здесь текст
-                                    <div style={{ height: '200px',alignItems:"flex-start"}}
+                                    <div style={{ gridTemplate: "repeat(3, 1fr) / repeat(3, 1fr)",columnGap: style as any}}
                                          className={classes.parent}>
-                                        <div  className={classes.child}></div>
-                                        <div style={{minWidth:'4rem',minHeight:'4rem'}}  className={classes.child}></div>
-                                        <div style={{alignSelf: style}} className={classes.child + " " + classes.active}></div>
-                                        <div  className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child + " " + classes.active}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
                                     </div>
                                 </>
                             }
@@ -411,51 +303,290 @@ const ElementAlignSelf:FC = ()=>{
                                     <code>
                                         .parent&#123;
                                         <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        display: flex;
+                                        display: grid;
                                         <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        height: 200px;
+                                        grid-template: repeat(3, 1fr) / repeat(3, 1fr)
                                         <br/>
-                                        .child&#123;
-                                        <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        <mark>align-self:{style}</mark>
+                                        <mark>gap: {style}</mark>
                                         <br/>
                                         &#125;
-                                    </code>
-
-                                </>
+                                    </code></>
                             }>
-        <p>Свойство align-self выравнивает флекс-элементы текущей строки, переписывая значение align-items.<strong>Если встроенная ось гибкого элемента совпадает с поперечной осью, значение baseline идентично flex-start. https://stackoverflow.com/a/40727921/10000274</strong></p>
-        <p><strong>Применяется к:</strong> flex элементам.</p>
+        <p>CSS-свойство column-gap задаёт отступы мужду колонками.</p>
+        <p><strong>Применяется к:</strong> grid контейнерам.</p>
+        <p><strong>Значение по-умолчанию:</strong> normal</p>
+    </ExampleSection>)
+}
+const ContainerGap:FC = ()=>{
+    return (<ExampleSection styleName={'gap'}
+                            styleVariants={[ "5px","5px 20px", "5%", "1em", "calc(5% + 5px)", "normal"]}
+                            view={
+                                (style) => <>
+                                    Здесь текст
+                                    <div style={{ gridTemplate: "repeat(3, 1fr) / repeat(3, 1fr)",gap: style as any}}
+                                         className={classes.parent}>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child + " " + classes.active}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                    </div>
+                                </>
+                            }
+                            code={
+                                (style) => <>
+                                    <code>
+                                        .parent&#123;
+                                        <br/>
+                                        display: grid;
+                                        <br/>
+                                        grid-template: repeat(3, 1fr) / repeat(3, 1fr)
+                                        <br/>
+                                        <mark>gap: {style}</mark>
+                                        <br/>
+                                        &#125;
+                                    </code></>
+                            }>
+        <p>CSS-свойство gap является сокращением для свойств: row-gap и column-gap. Свойство задаёт отступы мужду столбцами и строками.</p>
+        <p><strong>Применяется к:</strong> grid контейнерам.</p>
+        <p><strong>Значение по-умолчанию:</strong> normal</p>
+    </ExampleSection>)
+}
+const ContainerJustifyItems:FC = ()=>{
+    return (<ExampleSection styleName={'justify-items'}
+                            styleVariants={[ "start","end", "center", "stretch", "legacy", "normal", "auto"]}
+                            view={
+                                (style) => <>
+                                    Здесь текст
+                                    <div style={{ gridTemplate: "repeat(3, 1fr) / repeat(3, 1fr)",justifyItems: style as any, columnGap: "20px"}}
+                                         className={classes.parent}>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child + " " + classes.active}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                    </div>
+                                </>
+                            }
+                            code={
+                                (style) => <>
+                                    <code>
+                                        .parent&#123;
+                                        <br/>
+                                        display: grid;
+                                        <br/>
+                                        column-gap: 20px;
+                                        <br/>
+                                        grid-template: repeat(3, 1fr) / repeat(3, 1fr)
+                                        <br/>
+                                        <mark>justify-items: {style}</mark>
+                                        <br/>
+                                        &#125;
+                                    </code></>
+                            }>
+        <p>CSS-свойство justify-items выравнивает элементы grid-сетки внутри колонок по горизонтальной оси</p>
+        <p><strong>Применяется к:</strong> grid контейнерам.</p>
         <p><strong>Значение по-умолчанию:</strong> auto</p>
+    </ExampleSection>)
+}
+const ContainerAlignItems:FC = ()=>{
+    return (<ExampleSection styleName={'align-items'}
+                            styleVariants={[ "start","end", "center", "stretch", "legacy", "normal", "auto"]}
+                            view={
+                                (style) => <>
+                                    Здесь текст
+                                    <div style={{ gridTemplate: "repeat(3, 1fr) / repeat(3, 1fr)",alignItems: style as any, rowGap: "20px", height: "200px"}}
+                                         className={classes.parent}>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child + " " + classes.active}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                    </div>
+                                </>
+                            }
+                            code={
+                                (style) => <>
+                                    <code>
+                                        .parent&#123;
+                                        <br/>
+                                        display: grid;
+                                        <br/>
+                                        row-gap: 20px;
+                                        <br/>
+                                        grid-template: repeat(3, 1fr) / repeat(3, 1fr)
+                                        <br/>
+                                        <mark>align-items: {style}</mark>
+                                        <br/>
+                                        &#125;
+                                    </code></>
+                            }>
+        <p>CSS-свойство align-items выравнивает элементы grid-сетки внутри строк по вертикальной оси</p>
+        <p><strong>Применяется к:</strong> grid контейнерам.</p>
+        <p><strong>Значение по-умолчанию:</strong> normal</p>
+    </ExampleSection>)
+}
+
+const ContainerJustifyContent:FC = ()=>{
+    return (<ExampleSection styleName={'justify-content'}
+                            styleVariants={[ "start","end", "center", "stretch", "space-between", "space-around", "space-evenly", "normal"]}
+                            view={
+                                (style) => <>
+                                    Здесь текст
+                                    <div style={{ gridTemplate: "repeat(3, 50px) / repeat(3, 50px)",justifyContent: style as any, columnGap: "10px", height: "250px"}}
+                                         className={classes.parent}>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child + " " + classes.active}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                    </div>
+                                </>
+                            }
+                            code={
+                                (style) => <>
+                                    <code>
+                                        .parent&#123;
+                                        <br/>
+                                        display: grid;
+                                        <br/>
+                                        column-gap: 10px;
+                                        <br/>
+                                        grid-template: repeat(3, 1fr) / repeat(3, 1fr)
+                                        <br/>
+                                        <mark>justify-content: {style}</mark>
+                                        <br/>
+                                        &#125;
+                                    </code></>
+                            }>
+        <p>CSS-свойство justify-content выравнивает столбцы grid-сетки внутри контейнера</p>
+        <p><strong>Применяется к:</strong> grid контейнерам.</p>
+        <p><strong>Значение по-умолчанию:</strong> normal</p>
+    </ExampleSection>)
+}
+const ContainerAlignContent:FC = ()=>{
+    return (<ExampleSection styleName={'align-content'}
+                            styleVariants={[ "start","end", "center", "stretch", "space-between", "space-around", "space-evenly", "normal"]}
+                            view={
+                                (style) => <>
+                                    Здесь текст
+                                    <div style={{ gridTemplate: "repeat(3, 50px) / repeat(3, 50px)",alignContent: style as any, rowGap: "10px", height: "250px"}}
+                                         className={classes.parent}>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child + " " + classes.active}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                    </div>
+                                </>
+                            }
+                            code={
+                                (style) => <>
+                                    <code>
+                                        .parent&#123;
+                                        <br/>
+                                        display: grid;
+                                        <br/>
+                                        row-gap: 10px;
+                                        <br/>
+                                        grid-template: repeat(3, 1fr) / repeat(3, 1fr)
+                                        <br/>
+                                        <mark>align-content: {style}</mark>
+                                        <br/>
+                                        &#125;
+                                    </code></>
+                            }>
+        <p>CSS-свойство align-content выравнивает строки grid-сетки внутри контейнера</p>
+        <p><strong>Применяется к:</strong> grid контейнерам.</p>
+        <p><strong>Значение по-умолчанию:</strong> normal</p>
+    </ExampleSection>)
+}
+
+const ContainerGridAutoFlow:FC = ()=>{
+    return (<ExampleSection styleName={'grid-auto-flow'}
+                            styleVariants={[ "row","column","dense"]}
+                            view={
+                                (style) => <>
+                                    Здесь текст
+                                    <div style={{ gridTemplate: "repeat(3, 1fr) / repeat(3, 1fr)",gridAutoFlow: style as any, rowGap: "10px",}}
+                                         className={classes.parent}>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child + " " + classes.active}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                    </div>
+                                </>
+                            }
+                            code={
+                                (style) => <>
+                                    <code>
+                                        .parent&#123;
+                                        <br/>
+                                        display: grid;
+                                        <br/>
+                                        row-gap: 10px;
+                                        <br/>
+                                        <mark>grid-auto-flow: {style}</mark>
+                                        <br/>
+                                        &#125;
+                                    </code></>
+                            }>
+        <p>CSS-свойство grid-auto-flow опредяляет алгоритм размещения элементов в grid-сетке</p>
+        <p><strong>Применяется к:</strong> grid контейнерам.</p>
+        <p><strong>Значение по-умолчанию:</strong> row</p>
         <dl>
-            <dt>flex-start</dt>
-            <dd>Элемент выравнивается в начале поперечной оси контейнера.</dd>
-            <dt>flex-end</dt>
-            <dd>Элемент выравнивается в конце поперечной оси контейнера.</dd>
-            <dt>center</dt>
-            <dd>Элемент выравнивается по центральной линии на поперечной оси.</dd>
-            <dt>baseline</dt>
-            <dd>Элемент выравнивается по базовой линии текста.</dd>
-            <dt>stretch</dt>
-            <dd>Элемент растягивается таким образом, чтобы занять всё свободное пространство контейнера по поперечной оси.</dd>
+            <dt>row</dt>
+            <dd>Алгоритм размещает элементы, заполняя каждую строку поочередно, добавляя новые строки по мере необходимости.</dd>
+            <dt>column</dt>
+            <dd>Алгоритм помещает элементы, заполняя каждый столбец поочередно, добавляя по мере необходимости новые столбцы.</dd>
+            <dt>dense</dt>
+            <dd>алгоритм использует «плотный» алгоритм упаковки, который пытается заполнить дыры в сетке, если позже появятся более мелкие элементы. Это может привести к тому, что элементы появятся не по порядку, но при этом заполнят отверстия, оставленные более крупными элементами.</dd>
         </dl>
     </ExampleSection>)
 }
-const ElementFlexGrow:FC = ()=>{
-    return (<ExampleSection styleName={'flex-grow'}
-                            styleVariants={['0','-1', '1', '2']}
+
+const ContainerGridAutoRows:FC = ()=>{
+    return (<ExampleSection styleName={'grid-auto-rows'}
+                            styleVariants={[ "20px","150px","4em","20%"]}
                             view={
                                 (style) => <>
                                     Здесь текст
-                                    <div style={{ height: '200px'}}
+                                    <div style={{ gridTemplate: "repeat(2, 1fr) / repeat(2, 1fr)",gridAutoRows: style as any, rowGap: "10px",height: "250px"}}
                                          className={classes.parent}>
-                                        <div  className={classes.child}></div>
-                                        <div   className={classes.child}></div>
-                                        <div style={{flexGrow: style}} className={classes.child + " " + classes.active}></div>
-                                        <div style={{flexGrow: style === '2'?1:0}}  className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child + " " + classes.active}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
                                     </div>
                                 </>
                             }
@@ -464,131 +595,40 @@ const ElementFlexGrow:FC = ()=>{
                                     <code>
                                         .parent&#123;
                                         <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        display: flex;
+                                        display: grid;
                                         <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        height: 200px;
+                                        row-gap: 10px;
                                         <br/>
-                                        .child&#123;
+                                        grid-template: repeat(2, 1fr) / repeat(2, 1fr);
                                         <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        <mark>flex-grow:{style}</mark>
+                                        <mark>grid-auto-flow: {style}</mark>
                                         <br/>
                                         &#125;
-                                    </code>
-
-                                </>
+                                    </code></>
                             }>
-        <p>Свойство flex-grow задает коэффициент роста flex для заданного числа. Отрицательное значение не валидно. <strong>Когда flex-grow 2 для последнего элемента устанавливается flex-grow 1. Если для последнего элемента не установить свойства то разницы между flex-grow 1 и 2 не будет</strong></p>
-        <p><strong>Применяется к:</strong> flex элементам.</p>
-        <p><strong>Значение по-умолчанию:</strong> 0</p>
-    </ExampleSection>)
-}
-const ElementFlexShrink:FC = ()=>{
-    return (<ExampleSection styleName={'flex-shrink'}
-                            styleVariants={['0','-1', '1', '2']}
-                            view={
-                                (style) => <>
-                                    Здесь текст
-                                    <div style={{ height: '200px'}}
-                                         className={classes.parent}>
-                                        <div style={{width: '40%'}} className={classes.child}></div>
-                                        <div style={{width: '40%'}}  className={classes.child}></div>
-                                        <div style={{width: '40%',flexShrink: style}} className={classes.child + " " + classes.active}></div>
-                                        <div style={{width: '40%'}}  className={classes.child}></div>
-                                    </div>
-                                </>
-                            }
-                            code={
-                                (style) => <>
-                                    <code>
-                                        .parent&#123;
-                                        <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        display: flex;
-                                        <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        height: 200px;
-                                        <br/>
-                                        .child&#123;
-                                        <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        width: 40%
-                                        <br/>
-                                        .child-active&#123;
-                                        <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        <mark>flex-shrink:{style}</mark>
-                                        <br/>
-                                        &#125;
-                                    </code>
-
-                                </>
-                            }>
-        <p>Свойство flex-shrink задает коэффициент сжатия flex с заданным числом. Отрицательное значение не валидно. Чем больше коэффициент тем сильнее сжимается, при 0 не сжимается</p>
-        <p><strong>Применяется к:</strong> flex элементам.</p>
-        <p><strong>Значение по-умолчанию:</strong> 1</p>
-    </ExampleSection>)
-}
-const ElementFlexBasis:FC = ()=>{
-    return (<ExampleSection styleName={'flex-basis'}
-                            styleVariants={['0','auto','content', '100px', '200px']}
-                            view={
-                                (style) => <>
-                                    Здесь текст
-                                    <div style={{ height: '200px'}}
-                                         className={classes.parent}>
-                                        <div style={{width: '40%'}} className={classes.child}></div>
-                                        <div style={{width: '40%'}}  className={classes.child}></div>
-                                        <div style={{width: '40%',flexBasis: style}} className={classes.child + " " + classes.active}></div>
-                                        <div style={{width: '40%'}}  className={classes.child}></div>
-                                    </div>
-                                </>
-                            }
-                            code={
-                                (style) => <>
-                                    <code>
-                                        .parent&#123;
-                                        <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        display: flex;
-                                        <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        height: 200px;
-                                        <br/>
-                                        .child&#123;
-                                        <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        width: 40%
-                                        <br/>
-                                        .child-active&#123;
-                                        <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        <mark>flex-basis:{style}</mark>
-                                        <br/>
-                                        &#125;
-                                    </code>
-
-                                </>
-                            }>
-        <p>Свойство flex-basis переписывает свойство width (или height), но свойства min-width (или min-height) переписывают flex-basis.</p>
-        <p><strong>Применяется к:</strong> flex элементам.</p>
+        <p>CSS-свойство grid-auto-rows опредяляет размер неявно созданных строк grid-сетки. В данном примере явно создано 2 строки.</p>
+        <p><strong>Применяется к:</strong> grid контейнерам.</p>
         <p><strong>Значение по-умолчанию:</strong> auto</p>
     </ExampleSection>)
 }
-const ElementFlex:FC = ()=>{
-    return (<ExampleSection styleName={'flex'}
-                            styleVariants={['0 1 auto','2','0 1 20%', '2 1', '0 1 200px', '2 1 auto','0 2']}
+
+const ContainerGridAutoColumns:FC = ()=>{
+    return (<ExampleSection styleName={'grid-auto-columns'}
+                            styleVariants={[ "20px","150px","4em","20%"]}
                             view={
                                 (style) => <>
                                     Здесь текст
-                                    <div style={{ height: '200px'}}
+                                    <div style={{ gridTemplate: "repeat(2, 1fr) / repeat(2, 1fr)",gridAutoColumns: style as any, rowGap: "10px",height: "250px"}}
                                          className={classes.parent}>
-                                        <div style={{width: '20%'}} className={classes.child}></div>
-                                        <div style={{width: '20%'}}  className={classes.child}></div>
-                                        <div style={{width: '20%',flex: style}} className={classes.child + " " + classes.active}></div>
-                                        <div style={{width: '20%'}}  className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div style={{gridColumn: "3"}} className={classes.child + " " + classes.active}></div>
+                                        <div className={classes.child}></div>
+                                        <div style={{gridColumn: "4"}} className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
                                     </div>
                                 </>
                             }
@@ -597,30 +637,20 @@ const ElementFlex:FC = ()=>{
                                     <code>
                                         .parent&#123;
                                         <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        display: flex;
+                                        display: grid;
                                         <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        height: 200px;
+                                        row-gap: 10px;
                                         <br/>
-                                        .child&#123;
+                                        grid-template: repeat(2, 1fr) / repeat(2, 1fr);
                                         <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        width: 40%
-                                        <br/>
-                                        .child-active&#123;
-                                        <br/>
-                                        <>&nbsp;&nbsp;</>
-                                        <mark>flex:{style}</mark>
+                                        <mark>grid-auto-flow: {style}</mark>
                                         <br/>
                                         &#125;
-                                    </code>
-
-                                </>
+                                    </code></>
                             }>
-        <p>Свойство flex является сокращенной записью свойств flex-grow, flex-shrink и flex-basis. Значение по-умолчанию: 0 1 auto (однако flex: 2; == flex-grow: 2;flex-shrink: 1;flex-basis: 0%; );</p>
-        <p><strong>Применяется к:</strong> flex элементам.</p>
-        <p><strong>Значение по-умолчанию:</strong> 0 1 auto</p>
+        <p>CSS-свойство grid-auto-columns опредяляет размер неявно созданных колонок grid-сетки. В данном примере явно создано 2 колонки.</p>
+        <p><strong>Применяется к:</strong> grid контейнерам.</p>
+        <p><strong>Значение по-умолчанию:</strong> auto</p>
     </ExampleSection>)
 }
 
@@ -637,13 +667,18 @@ const GridGuidePage: FC = () => {
             <ContainerGridTemplateRows/>
             <ContainerGridTemplateAreas/>
             <ContainerGridTemplate/>
+            <ContainerRowGap/>
+            <ContainerColumnGap/>
+            <ContainerGap/>
+            <ContainerJustifyItems/>
+            <ContainerAlignItems/>
+            <ContainerJustifyContent/>
+            <ContainerAlignContent/>
+            <ContainerGridAutoFlow/>
+            <ContainerGridAutoRows/>
+            <ContainerGridAutoColumns/>
             <h2>Свойства элемента:</h2>
-            <ElementOrder/>
-            <ElementAlignSelf/>
-            <ElementFlexGrow/>
-            <ElementFlexShrink/>
-            <ElementFlexBasis/>
-            <ElementFlex/>
+
 
         </article>
     )
