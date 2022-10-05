@@ -654,6 +654,281 @@ const ContainerGridAutoColumns:FC = ()=>{
     </ExampleSection>)
 }
 
+const ElementJustifySelf:FC = ()=>{
+    return (<ExampleSection styleName={'justify-self'}
+                            styleVariants={[ "start","end","center","stretch","auto"]}
+                            view={
+                                (style) => <>
+                                    Здесь текст
+                                    <div style={{ gridTemplate: "repeat(3, 1fr) / repeat(3, 1fr)"}}
+                                         className={classes.parent}>
+                                        <div style={{justifySelf: style}} className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child + " " + classes.active}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                    </div>
+                                </>
+                            }
+                            code={
+                                (style) => <>
+                                    <code>
+                                        .parent&#123;
+                                        <br/>
+                                        display: grid;
+                                        <br/>
+                                        grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+                                        <br/>
+                                        &#125;
+                                        <br/>
+                                        .child&#123;
+                                        <br/>
+                                        <mark>justify-self: {style}</mark>
+                                        <br/>
+                                        &#125;
+                                    </code></>
+                            }>
+        <p>CSS-свойство justify-self выравнивает содержимое элемента вдоль оси строки (в отличии от align-self, который выравнивает вдоль оси столбца).</p>
+        <p><strong>Применяется к:</strong> grid элементам.</p>
+        <p><strong>Значение по-умолчанию:</strong> auto</p>
+    </ExampleSection>)
+}
+
+const ElementAlignSelf:FC = ()=>{
+    return (<ExampleSection styleName={'align-self'}
+                            styleVariants={[ "start","end","center","stretch","auto"]}
+                            view={
+                                (style) => <>
+                                    Здесь текст
+                                    <div style={{ gridTemplate: "repeat(3, 1fr) / repeat(3, 1fr)",height:"200px"}}
+                                         className={classes.parent}>
+                                        <div style={{alignSelf: style}} className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child + " " + classes.active}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                    </div>
+                                </>
+                            }
+                            code={
+                                (style) => <>
+                                    <code>
+                                        .parent&#123;
+                                        <br/>
+                                        display: grid;
+                                        <br/>
+                                        grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+                                        <br/>
+                                        height: 200px;
+                                        <br/>
+                                        &#125;
+                                        <br/>
+                                        .child&#123;
+                                        <br/>
+                                        <mark>align-self: {style}</mark>
+                                        <br/>
+                                        &#125;
+                                    </code></>
+                            }>
+        <p>CSS-свойство align-self выравнивает содержимое элемента вдоль оси колонки (в отличии от justify-self, который выравнивает вдоль оси столбца).</p>
+        <p><strong>Применяется к:</strong> grid элементам.</p>
+        <p><strong>Значение по-умолчанию:</strong> auto</p>
+    </ExampleSection>)
+}
+
+const ElementOrder:FC = ()=>{
+    return (<ExampleSection styleName={'order'}
+                            styleVariants={[ "-1","0","-2","2","10","-10"]}
+                            view={
+                                (style) => <>
+                                    Здесь текст
+                                    <div style={{ gridTemplate: "repeat(3, 1fr) / repeat(3, 1fr)",height:"200px"}}
+                                         className={classes.parent}>
+                                        <div  className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div style={{order: style}} className={classes.child + " " + classes.active}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                    </div>
+                                </>
+                            }
+                            code={
+                                (style) => <>
+                                    <code>
+                                        .parent&#123;
+                                        <br/>
+                                        display: grid;
+                                        <br/>
+                                        grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+                                        <br/>
+                                        height: 200px;
+                                        <br/>
+                                        &#125;
+                                        <br/>
+                                        .child&#123;
+                                        <br/>
+                                        <mark>order: {style}</mark>
+                                        <br/>
+                                        &#125;
+                                    </code></>
+                            }>
+        <p>CSS-свойство order определяет порядок элемента в сетке</p>
+        <p><strong>Применяется к:</strong> grid элементам.</p>
+        <p><strong>Значение по-умолчанию:</strong> 0</p>
+    </ExampleSection>)
+}
+
+const ElementGridRowStart:FC = ()=>{
+    return (<ExampleSection styleName={'grid-row-start'}
+                            styleVariants={[ "-1","0","1","2","-2","span -2","span 2","span 3", "span 10", "auto"]}
+                            view={
+                                (style) => <>
+                                    Здесь текст
+                                    <div style={{ gridTemplate: "repeat(3, 1fr) / repeat(3, 1fr)"}}
+                                         className={classes.parent}>
+                                        <div  className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div style={{gridRowStart: style}} className={classes.child + " " + classes.active}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                    </div>
+                                </>
+                            }
+                            code={
+                                (style) => <>
+                                    <code>
+                                        .parent&#123;
+                                        <br/>
+                                        display: grid;
+                                        <br/>
+                                        grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+                                        <br/>
+                                        height: 200px;
+                                        <br/>
+                                        &#125;
+                                        <br/>
+                                        .child&#123;
+                                        <br/>
+                                        <mark>grid-row-start: {style}</mark>
+                                        <br/>
+                                        &#125;
+                                    </code></>
+                            }>
+        <p>CSS-свойство grid-row-start определяет положение элемента в сетке по строке</p>
+        <p><strong>Применяется к:</strong> grid элементам.</p>
+        <p><strong>Значение по-умолчанию:</strong> auto</p>
+    </ExampleSection>)
+}
+
+const ElementGridRowEnd:FC = ()=>{
+    return (<ExampleSection styleName={'grid-row-end'}
+                            styleVariants={[ "-1","0","1","2","-2","span -2","span 2","span 3", "span 10", "auto"]}
+                            view={
+                                (style) => <>
+                                    Здесь текст
+                                    <div style={{ gridTemplate: "repeat(3, 1fr) / repeat(3, 1fr)"}}
+                                         className={classes.parent}>
+                                        <div  className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div style={{gridRowEnd: style}} className={classes.child + " " + classes.active}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                    </div>
+                                </>
+                            }
+                            code={
+                                (style) => <>
+                                    <code>
+                                        .parent&#123;
+                                        <br/>
+                                        display: grid;
+                                        <br/>
+                                        grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+                                        <br/>
+                                        height: 200px;
+                                        <br/>
+                                        &#125;
+                                        <br/>
+                                        .child&#123;
+                                        <br/>
+                                        <mark>grid-row-end: {style}</mark>
+                                        <br/>
+                                        &#125;
+                                    </code></>
+                            }>
+        <p>CSS-свойство grid-row-start определяет положение элемента в сетке по строке</p>
+        <p><strong>Применяется к:</strong> grid элементам.</p>
+        <p><strong>Значение по-умолчанию:</strong> auto</p>
+    </ExampleSection>)
+}
+
+
+const ElementGridRow:FC = ()=>{
+    return (<ExampleSection styleName={'grid-row'}
+                            styleVariants={[ "-1","0","1","2","-2","span -2","span 2","span 3", "span 10", "auto", "1 / 3", "2 / -1", "1 / span 2"]}
+                            view={
+                                (style) => <>
+                                    Здесь текст
+                                    <div style={{ gridTemplate: "repeat(3, 1fr) / repeat(3, 1fr)"}}
+                                         className={classes.parent}>
+                                        <div  className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div style={{gridRow: style}} className={classes.child + " " + classes.active}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                    </div>
+                                </>
+                            }
+                            code={
+                                (style) => <>
+                                    <code>
+                                        .parent&#123;
+                                        <br/>
+                                        display: grid;
+                                        <br/>
+                                        grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+                                        <br/>
+                                        height: 200px;
+                                        <br/>
+                                        &#125;
+                                        <br/>
+                                        .child&#123;
+                                        <br/>
+                                        <mark>grid-row: {style}</mark>
+                                        <br/>
+                                        &#125;
+                                    </code></>
+                            }>
+        <p>CSS-свойство grid-row-start определяет положение элемента в сетке по строке</p>
+        <p><strong>Применяется к:</strong> grid элементам.</p>
+        <p><strong>Значение по-умолчанию:</strong> (grid-row-start) auto / (grid-row-end) auto</p>
+    </ExampleSection>)
+}
+
 const GridGuidePage: FC = () => {
     return (
         <article>
@@ -678,6 +953,12 @@ const GridGuidePage: FC = () => {
             <ContainerGridAutoRows/>
             <ContainerGridAutoColumns/>
             <h2>Свойства элемента:</h2>
+            <ElementJustifySelf/>
+            <ElementAlignSelf/>
+            <ElementOrder/>
+            <ElementGridRowStart/>
+            <ElementGridRowEnd/>
+            <ElementGridRow/>
 
 
         </article>
