@@ -163,3 +163,17 @@ dt{
 dd{
   margin-bottom: 15px;
 }
+
+nav{
+  ul{
+    font-size: 1em;
+    list-style-type: none;
+    font-weight: bold;
+
+    a{
+      text-decoration: none;
+      //color:black;
+      padding: 8px 20px;
+    }
+  }
+}

@@ -11,7 +11,7 @@ const ExampleSection: FC<{
     const [style, setStyle] = useState<(typeof styleVariants [number])>(styleVariants[0])
 
     return (
-        <div>
+        <div id={styleName}>
             <h2>{styleName}</h2>
             <ul className={classes.buttons}>
                 {
@@ -876,7 +876,7 @@ const ElementGridRowEnd:FC = ()=>{
                                         &#125;
                                     </code></>
                             }>
-        <p>CSS-свойство grid-row-start определяет положение элемента в сетке по строке</p>
+        <p>CSS-свойство grid-row-end определяет положение элемента в сетке по строке</p>
         <p><strong>Применяется к:</strong> grid элементам.</p>
         <p><strong>Значение по-умолчанию:</strong> auto</p>
     </ExampleSection>)
@@ -929,6 +929,225 @@ const ElementGridRow:FC = ()=>{
     </ExampleSection>)
 }
 
+const ElementGridColumnStart:FC = ()=>{
+    return (<ExampleSection styleName={'grid-column-start'}
+                            styleVariants={[ "-1","0","1","2","-2","span -2","span 2","span 3", "span 10", "auto"]}
+                            view={
+                                (style) => <>
+                                    Здесь текст
+                                    <div style={{ gridTemplate: "repeat(3, 1fr) / repeat(3, 1fr)"}}
+                                         className={classes.parent}>
+                                        <div  className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div style={{gridColumnStart: style}} className={classes.child + " " + classes.active}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                    </div>
+                                </>
+                            }
+                            code={
+                                (style) => <>
+                                    <code>
+                                        .parent&#123;
+                                        <br/>
+                                        display: grid;
+                                        <br/>
+                                        grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+                                        <br/>
+                                        height: 200px;
+                                        <br/>
+                                        &#125;
+                                        <br/>
+                                        .child&#123;
+                                        <br/>
+                                        <mark>grid-column-start: {style}</mark>
+                                        <br/>
+                                        &#125;
+                                    </code></>
+                            }>
+        <p>CSS-свойство grid-column-start определяет положение элемента в сетке по столбцу</p>
+        <p><strong>Применяется к:</strong> grid элементам.</p>
+        <p><strong>Значение по-умолчанию:</strong> auto</p>
+    </ExampleSection>)
+}
+
+const ElementGridColumnEnd:FC = ()=>{
+    return (<ExampleSection styleName={'grid-column-end'}
+                            styleVariants={[ "-1","0","1","2","-2","span -2","span 2","span 3", "span 10", "auto"]}
+                            view={
+                                (style) => <>
+                                    Здесь текст
+                                    <div style={{ gridTemplate: "repeat(3, 1fr) / repeat(3, 1fr)"}}
+                                         className={classes.parent}>
+                                        <div  className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div style={{gridColumnEnd: style}} className={classes.child + " " + classes.active}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                    </div>
+                                </>
+                            }
+                            code={
+                                (style) => <>
+                                    <code>
+                                        .parent&#123;
+                                        <br/>
+                                        display: grid;
+                                        <br/>
+                                        grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+                                        <br/>
+                                        height: 200px;
+                                        <br/>
+                                        &#125;
+                                        <br/>
+                                        .child&#123;
+                                        <br/>
+                                        <mark>grid-column-end: {style}</mark>
+                                        <br/>
+                                        &#125;
+                                    </code></>
+                            }>
+        <p>CSS-свойство grid-column-end определяет положение элемента в сетке по столбцу</p>
+        <p><strong>Применяется к:</strong> grid элементам.</p>
+        <p><strong>Значение по-умолчанию:</strong> auto</p>
+    </ExampleSection>)
+}
+
+const ElementGridColumn:FC = ()=>{
+    return (<ExampleSection styleName={'grid-column'}
+                            styleVariants={[ "-1","0","1","2","-2","span -2","span 2","span 3", "span 10", "auto", "1 / 3", "2 / -1", "1 / span 2"]}
+                            view={
+                                (style) => <>
+                                    Здесь текст
+                                    <div style={{ gridTemplate: "repeat(3, 1fr) / repeat(3, 1fr)"}}
+                                         className={classes.parent}>
+                                        <div  className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div style={{gridColumn: style}} className={classes.child + " " + classes.active}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                    </div>
+                                </>
+                            }
+                            code={
+                                (style) => <>
+                                    <code>
+                                        .parent&#123;
+                                        <br/>
+                                        display: grid;
+                                        <br/>
+                                        grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+                                        <br/>
+                                        height: 200px;
+                                        <br/>
+                                        &#125;
+                                        <br/>
+                                        .child&#123;
+                                        <br/>
+                                        <mark>grid-column: {style}</mark>
+                                        <br/>
+                                        &#125;
+                                    </code></>
+                            }>
+        <p>CSS-свойство grid-column определяет положение элемента в сетке по столбцу</p>
+        <p><strong>Применяется к:</strong> grid элементам.</p>
+        <p><strong>Значение по-умолчанию:</strong> (grid-column-start) auto / (grid-column-end) auto</p>
+    </ExampleSection>)
+}
+
+const ElementGridArea:FC = ()=>{
+    return (<ExampleSection styleName={'grid-area'}
+                            styleVariants={[ "-1","0","1","2","-2","span -2","span 2","span 3", "span 10", "auto", "1 / 3", "2 / -1", "1 / span 2", "span 3 / 1","2 / 1 / 2","2 / 1 / 2 / 3"]}
+                            view={
+                                (style) => <>
+                                    Здесь текст
+                                    <div style={{ gridTemplate: "repeat(3, 1fr) / repeat(3, 1fr)"}}
+                                         className={classes.parent}>
+                                        <div  className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div style={{gridArea: style}} className={classes.child + " " + classes.active}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                        <div className={classes.child}></div>
+                                    </div>
+                                </>
+                            }
+                            code={
+                                (style) => <>
+                                    <code>
+                                        .parent&#123;
+                                        <br/>
+                                        display: grid;
+                                        <br/>
+                                        grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+                                        <br/>
+                                        height: 200px;
+                                        <br/>
+                                        &#125;
+                                        <br/>
+                                        .child&#123;
+                                        <br/>
+                                        <mark>grid-area: {style}</mark>
+                                        <br/>
+                                        &#125;
+                                    </code></>
+                            }>
+        <p>CSS-свойство grid-area определяет положение элемента в сетке по строке и столбцу</p>
+        <p><strong>Применяется к:</strong> grid элементам.</p>
+        <p><strong>Значение по-умолчанию:</strong> (grid-row-start) auto / (grid-column-start) auto  / (grid-row-end) auto / (grid-column-end) auto</p>
+    </ExampleSection>)
+}
+
+const Nav:FC = ()=>{
+    return (
+        <nav>
+        <ul>
+            <p>Свойства контейнера</p>
+            <li><a href={"#display"}>display</a></li>
+            <li><a href={"#grid-template-columns"}>grid-template-columns</a></li>
+            <li><a href={"#grid-template-rows"}>grid-template-rows</a></li>
+            <li><a href={"#grid-template-areas"}>grid-template-areas</a></li>
+            <li><a href={"#grid-template"}>grid-template</a></li>
+            <li><a href={"#row-gap"}>row-gap</a></li>
+            <li><a href={"#column-gap"}>column-gap</a></li>
+            <li><a href={"#gap"}>gap</a></li>
+            <li><a href={"#justify-items"}>justify-items</a></li>
+            <li><a href={"#align-items"}>align-items</a></li>
+            <li><a href={"#justify-content"}>justify-content</a></li>
+            <li><a href={"#align-content"}>align-content</a></li>
+            <li><a href={"#grid-auto-flow"}>grid-auto-flow</a></li>
+            <li><a href={"#grid-auto-rows"}>grid-auto-rows</a></li>
+            <li><a href={"#grid-auto-columns"}>grid-auto-columns</a></li>
+            <p>Свойства Элемента</p>
+            <li><a href={"#justify-self"}>justify-self</a></li>
+            <li><a href={"#align-self"}>align-self</a></li>
+            <li><a href={"#order"}>order</a></li>
+            <li><a href={"#grid-row-start"}>grid-row-start</a></li>
+            <li><a href={"#grid-row-end"}>grid-row-end</a></li>
+            <li><a href={"#grid-row"}>grid-row</a></li>
+            <li><a href={"#grid-column-start"}>grid-column-start</a></li>
+            <li><a href={"#grid-column-end"}>grid-column-end</a></li>
+            <li><a href={"#grid-column"}>grid-column</a></li>
+            <li><a href={"#grid-area"}>grid-area</a></li>
+        </ul></nav>
+    )
+}
+
 const GridGuidePage: FC = () => {
     return (
         <article>
@@ -936,6 +1155,7 @@ const GridGuidePage: FC = () => {
             <p>Вся документация по свойству <code>grid</code> находится на <a target="_blank"
                                                                               href="https://www.w3.org/TR/css-grid-1/">официальном
                 сайте</a>.</p>
+            <Nav/>
             <h2>Свойства контейнера:</h2>
             <ContainerDisplay/>
             <ContainerGridTemplateColumns/>
@@ -959,6 +1179,10 @@ const GridGuidePage: FC = () => {
             <ElementGridRowStart/>
             <ElementGridRowEnd/>
             <ElementGridRow/>
+            <ElementGridColumnStart/>
+            <ElementGridColumnEnd/>
+            <ElementGridColumn/>
+            <ElementGridArea/>
 
 
         </article>
