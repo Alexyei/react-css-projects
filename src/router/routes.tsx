@@ -2,6 +2,7 @@ import FlexboxGuidePage from "../pages/flexbox guide/FlexboxGuidePage";
 import GridGuidePage from "../pages/grid guide/GridGuidePage";
 import GridSubgrid from "../pages/grid subgrid/GridSubgrid";
 import LAMainPage from "../pages/mui/Laith Academy course/mainPage";
+import LATourPage from "../pages/mui/Laith Academy course/tourPage";
 
 export const publicRoutes= [
     {path: '/flex',element:(<FlexboxGuidePage/>),linkName:'flexbox guide'},
@@ -10,6 +11,7 @@ export const publicRoutes= [
 
     //mui
     {path: '/LA/main',element: (<LAMainPage/>),linkName: 'LA main'},
+    {path: '/LA/tour/:id',element: (<LATourPage/>),linkName: 'LA tour'},
 
     {path: '*',element:(<div>404 NOT FOUND</div>)}
 ]
