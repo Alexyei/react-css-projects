@@ -5,7 +5,13 @@ import {publicRoutes} from "./routes";
 export const AppRouter:FC = ()=>{
     return (
         <Routes>
-            {publicRoutes.map((el)=><Route key={el.path} path={el.path} element={el.element}/>)}
+            {publicRoutes.map((el)=>
+                el.nestedRoutes ?
+                    <Route key={el.path} path={el.path} element={el.element}>
+                        {el.nestedRoutes.map((nel)=><Route key={nel.path} path={nel.path} element={nel.element}/>)}
+                    </Route>
+                :<Route key={el.path} path={el.path} element={el.element}/>
+            )}
         </Routes>
     )
 }
