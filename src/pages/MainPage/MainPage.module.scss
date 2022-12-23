@@ -1,0 +1,38 @@
+.container{
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  left:0;
+  right:0;
+  background-color: #97dffa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .list{
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px;
+    list-style: none;
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    margin: 0 10px;
+    display: flex;
+    flex-wrap: wrap;
+
+    h1{
+      font-size: 24px;
+      margin: 0;
+      width: 100%;
+    }
+
+    .link{
+      padding: 10px;
+      a{
+        font-size: 18px;
+        text-decoration: none;
+      }
+    }
+  }
+}

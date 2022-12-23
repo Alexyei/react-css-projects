@@ -10,11 +10,36 @@ import ADFunctions from "../pages/mui/Atypical Developer Dashboard/pages/Functio
 import ADHosting from "../pages/mui/Atypical Developer Dashboard/pages/Hosting/Hosting";
 import ADMachineLearning from "../pages/mui/Atypical Developer Dashboard/pages/Machine-learning/Machine-learning";
 import ADStorage from "../pages/mui/Atypical Developer Dashboard/pages/Storage/Storage";
+import MainPage from "../pages/MainPage/MainPage";
+import TransitionGroupExample from "../pages/transition-group/component/TransitionGroup/TransitionGroupExample";
+import CSSTransitionLoaderExample
+    from "../pages/transition-group/component/CSSTransitionExample/CSSTransitionLoaderExample";
+import LoaderExample from "../pages/transition-group/component/FirstExample/LoaderExample";
+import SwitchTransitionExampleCSSTransitionClasses
+    , {
+    SwitchTransitionExampleCSSTransitionStyles,
+    SwitchTransitionExampleCSSTransitionWrong,
+    SwitchTransitionExampleTransition
+} from "../pages/transition-group/component/SwitchTransition/SwitchTransitionExample";
+import FanList from "../pages/transition-group/examples/FanList/FanList";
+import BubbleLoading from "../pages/transition-group/examples/BubleLoading/BubbleLoading";
 
 export const publicRoutes= [
+    {path: '/',element:(<MainPage/>)},
     {path: '/flex',element:(<FlexboxGuidePage/>),linkName:'flexbox guide'},
-    {path: '/',element:(<GridGuidePage/>),linkName:'grid guide'},
+    {path: '/grid',element:(<GridGuidePage/>),linkName:'grid guide'},
     {path: '/subgrid', element: (<GridSubgrid/>), linkName: 'grid subgrid'},
+
+    //react transition group
+    {path: '/RTG',element: (<TransitionGroupExample/>),linkName:'RTG List'},
+    {path: '/RTG/loader',element:(<CSSTransitionLoaderExample/>),linkName:'RTG Loader'},
+    {path: '/RTG/first',element:(<LoaderExample/>),linkName:'RTG Basic Loader'},
+    {path: '/RTG/st-CSS-classes',element:(<SwitchTransitionExampleCSSTransitionClasses/>),linkName:'RTG st-CSS-classes'},
+    {path: '/RTG/st-CSS-styles',element:(<SwitchTransitionExampleCSSTransitionStyles/>),linkName:'RTG st-CSS-styles'},
+    {path: '/RTG/transition',element:(<SwitchTransitionExampleTransition/>),linkName:'RTG transition'},
+    {path: '/RTG/wrong',element:(<SwitchTransitionExampleCSSTransitionWrong/>),linkName:'RTG wrong'},
+    {path: '/RTG/fan-list',element: (<FanList/>), linkName: 'RTG Fan List'},
+    {path: '/RTG/bubble',element: (<BubbleLoading/>), linkName: 'RTG Bubble Loading'},
 
     //mui
     {path: '/LA/main',element: (<LAMainPage/>),linkName: 'LA main'},
