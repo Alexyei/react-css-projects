@@ -1,0 +1,71 @@
+.container{
+    display:flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-height: 150vh;
+}
+
+.box:nth-child(1){
+    background-color: lightgreen;
+    width: 50vw;
+    height: 50vh;
+}
+
+.box:nth-child(2){
+    background-color: lightblue;
+    /*choose max between vw and vh*/
+    width: 50vmax;
+    /*choose min between vw and vh*/
+    height: 50vmin;
+}
+
+.box:nth-child(3){
+    background-color: lightcoral;
+    /*vi эквивалентно 1% размера окна просмотра по направлению написания строки*/
+    width: 50vi;
+    /*vb эквивалентно 1% размера окна просмотра поперек направления написания строки*/
+    height: 50vb;
+}
+
+.box:nth-child(4){
+    writing-mode: vertical-lr;
+    background-color: lightgray;
+    width: 50vi;
+    height: 50vb;
+}
+
+.containerCompare{
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    min-height: 150vh;
+}
+
+.boxCompare{
+    flex-grow: 1;
+}
+
+/*У мобильных телфонов во время прокрутки скрывается панель с url-адресом освобождая пространство*/
+/*svh это vh для экрана с панелью*/
+/*lvh это для экрана без панели*/
+/*dvh до прокрутки svh, после lvh (адаптивный вариант)*/
+/*Нужно подключать телефон иначе это не заметно по f12*/
+.boxCompare:nth-child(1){
+    background-color: lightgreen;
+    height: 50vh;
+}
+
+.boxCompare:nth-child(2){
+    background-color: lightblue;
+    height: 50svh;
+}
+
+.boxCompare:nth-child(3){
+    background-color: lightcoral;
+    height: 50lvh;
+}
+
+.boxCompare:nth-child(4){
+    background-color: lightgray;
+    height: 50dvh;
+}

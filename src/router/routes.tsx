@@ -24,6 +24,8 @@ import SwitchTransitionExampleCSSTransitionClasses
 import FanList from "../pages/transition-group/examples/FanList/FanList";
 import BubbleLoading from "../pages/transition-group/examples/BubleLoading/BubbleLoading";
 import ContainerQuery from "../pages/ContainerQuery/ContainerQuery";
+import ViewPort from "../pages/Viewports/ViewPort";
+import Responsive from "../pages/Responsive/Responsive";
 
 export const publicRoutes= [
     {path: '/',element:(<MainPage/>)},
@@ -32,6 +34,8 @@ export const publicRoutes= [
     {path: '/subgrid', element: (<GridSubgrid/>), linkName: 'grid subgrid'},
 
     {path: '/container-query', element: (<ContainerQuery/>), linkName: 'container query'},
+    {path: "/viewport",element: (<ViewPort/>), linkName: 'viewports'},
+    {path: "/responsive",element: (<Responsive/>), linkName: 'responsive'},
     //react transition group
     {path: '/RTG',element: (<TransitionGroupExample/>),linkName:'RTG List'},
     {path: '/RTG/loader',element:(<CSSTransitionLoaderExample/>),linkName:'RTG Loader'},

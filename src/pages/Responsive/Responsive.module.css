@@ -1,0 +1,111 @@
+.box{
+    background: rebeccapurple;
+    width: 200px;
+    height: 200px;
+}
+
+@media (max-width: 800px) {
+    .box{
+        background: red;
+    }
+}
+
+.box2{
+    background: lightblue;
+    width: 200px;
+    height: 200px;
+}
+
+/*landscape*/
+@media (orientation: portrait) {
+    .box2{
+        background: lightgreen;
+    }
+}
+
+.box3{
+    background: cyan;
+    width: 200px;
+    height: 200px;
+}
+
+@media (min-aspect-ratio: 16/9) {
+    .box3{
+        background: orangered;
+    }
+}
+
+.box4{
+    background: blueviolet;
+    width: 200px;
+    height: 200px;
+}
+
+@media (100px <= width <= 300px ){
+    .box4{
+        background: lawngreen;
+    }
+}
+
+.container{
+    display: flex;
+}
+.boxMain, .boxSide {
+    width: 200px;
+    height: 200px;
+    background-color: navy;
+    margin: 20px;
+}
+.main{
+    flex-grow: 1;
+}
+.sidebar{
+    width: 30%;
+    border-left: 1px solid black;
+}
+
+.main, .sidebar {
+    container-type: inline-size;
+
+}
+
+@container (width >= 340px) {
+    .boxMain, .boxSide {
+        background: red;
+    }
+}
+
+.gridBox{
+    background: orange;
+    height: 100px;
+}
+.grid{
+    width: 100%;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit,minmax(100px, 1fr));
+}
+
+.gridFit{
+    margin: 1rem 0;
+    width: 100%;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit,minmax(100px, 1fr));
+}
+
+.gridFill{
+
+    width: 100%;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill,minmax(100px, 1fr));
+}
+
+.clampBox {
+    height: 200px;
+    background: yellow;
+    min-width: 100px;
+    width: 75%;
+    max-width: 400px;
+}
