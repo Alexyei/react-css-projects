@@ -23,6 +23,7 @@ import SwitchTransitionExampleCSSTransitionClasses
 } from "../pages/transition-group/component/SwitchTransition/SwitchTransitionExample";
 import FanList from "../pages/transition-group/examples/FanList/FanList";
 import BubbleLoading from "../pages/transition-group/examples/BubleLoading/BubbleLoading";
+import ContainerQuery from "../pages/ContainerQuery/ContainerQuery";
 
 export const publicRoutes= [
     {path: '/',element:(<MainPage/>)},
@@ -30,6 +31,7 @@ export const publicRoutes= [
     {path: '/grid',element:(<GridGuidePage/>),linkName:'grid guide'},
     {path: '/subgrid', element: (<GridSubgrid/>), linkName: 'grid subgrid'},
 
+    {path: '/container-query', element: (<ContainerQuery/>), linkName: 'container query'},
     //react transition group
     {path: '/RTG',element: (<TransitionGroupExample/>),linkName:'RTG List'},
     {path: '/RTG/loader',element:(<CSSTransitionLoaderExample/>),linkName:'RTG Loader'},
