@@ -693,6 +693,7 @@ const ElementFlex:FC = ()=>{
 
 const FlexboxGuidePage: FC = () => {
     return (
+        <div className={classes.container}>
         <article>
             <h1>Шпаргалка по Flexbox CSS</h1>
             <p>Вся документация по свойству <code>flex</code> находится на <a target="_blank"
@@ -714,7 +715,7 @@ const FlexboxGuidePage: FC = () => {
             <ElementFlexBasis/>
             <ElementFlex/>
 
-        </article>
+        </article></div>
     )
 }
 

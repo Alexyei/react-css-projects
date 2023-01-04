@@ -1150,6 +1150,7 @@ const Nav:FC = ()=>{
 
 const GridGuidePage: FC = () => {
     return (
+        <div className={classes.container}>
         <article>
             <h1>Шпаргалка по Grid CSS</h1>
             <p>Вся документация по свойству <code>grid</code> находится на <a target="_blank"
@@ -1185,7 +1186,7 @@ const GridGuidePage: FC = () => {
             <ElementGridArea/>
 
 
-        </article>
+        </article></div>
     )
 }
 

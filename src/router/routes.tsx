@@ -26,6 +26,8 @@ import BubbleLoading from "../pages/transition-group/examples/BubleLoading/Bubbl
 import ContainerQuery from "../pages/ContainerQuery/ContainerQuery";
 import ViewPort from "../pages/Viewports/ViewPort";
 import Responsive from "../pages/Responsive/Responsive";
+import EmmetCheat1 from "../pages/EmmetCheat1/EmmetCheat1";
+import EmmetCheatMy from "../pages/EmmetCheatMy/EmmetCheatMy";
 
 export const publicRoutes= [
     {path: '/',element:(<MainPage/>)},
@@ -36,6 +38,8 @@ export const publicRoutes= [
     {path: '/container-query', element: (<ContainerQuery/>), linkName: 'container query'},
     {path: "/viewport",element: (<ViewPort/>), linkName: 'viewports'},
     {path: "/responsive",element: (<Responsive/>), linkName: 'responsive'},
+    {path: "/emmet", element: (<EmmetCheat1/>),linkName: 'emmet-cheat'},
+    {path: "/emmet-my", element: (<EmmetCheatMy/>),linkName: 'emmet-cheat-my'},
     //react transition group
     {path: '/RTG',element: (<TransitionGroupExample/>),linkName:'RTG List'},
     {path: '/RTG/loader',element:(<CSSTransitionLoaderExample/>),linkName:'RTG Loader'},

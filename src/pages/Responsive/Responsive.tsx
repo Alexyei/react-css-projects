@@ -1,6 +1,8 @@
 import {FC} from "react";
 import classes from "./Responsive.module.css"
 const Responsive:FC = ()=>{
+
+
     return (
         <>
             <div className={classes.box}></div>
